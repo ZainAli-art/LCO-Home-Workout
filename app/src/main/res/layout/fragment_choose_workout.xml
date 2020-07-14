@@ -12,22 +12,24 @@
             android:layout_height="30dp"
             android:id="@+id/workoutTimerText"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="24dp" android:layout_marginTop="24dp"
+            android:layout_marginStart="24dp" android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/textView4"/>
     <TextView
             android:text="@string/crunches"
             app:autoSizeTextType="uniform"
             android:layout_width="150dp"
             android:layout_height="30dp" android:id="@+id/textView4"
-            tools:layout_editor_absoluteY="90dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="24dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="24dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.29000002"/>
     <TextView
             android:text="@string/bench_press"
             app:autoSizeTextType="uniform"
             android:layout_width="150dp"
             android:layout_height="30dp" android:id="@+id/textView5"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="24dp" android:layout_marginTop="24dp"
+            android:layout_marginStart="24dp" android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/workoutTimerText"/>
     <TextView
             android:text="@string/barbell_press"
@@ -35,7 +37,7 @@
             android:layout_width="150dp"
             android:layout_height="30dp" android:id="@+id/textView6"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="24dp" android:layout_marginTop="24dp"
+            android:layout_marginStart="24dp" android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/textView5"/>
     <TextView
             android:text="@string/shoulder_press"
@@ -43,7 +45,7 @@
             android:layout_width="150dp"
             android:layout_height="30dp" android:id="@+id/textView7"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="24dp" android:layout_marginTop="24dp"
+            android:layout_marginStart="24dp" android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/textView6"/>
     <Spinner
             android:layout_width="50dp"
