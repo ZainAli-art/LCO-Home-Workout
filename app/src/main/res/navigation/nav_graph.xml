@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            app:startDestination="@id/chooseWorkoutFragment">
+
+    <fragment android:id="@+id/chooseWorkoutFragment"
+              android:name="com.example.android.lcohomeworkout.ChooseWorkoutFragment"
+              android:label="fragment_choose_workout" tools:layout="@layout/fragment_choose_workout">
+        <action android:id="@+id/action_chooseWorkoutFragment_to_workoutFragment"
+                app:destination="@id/workoutFragment"/>
+    </fragment>
+    <fragment android:id="@+id/workoutFragment" android:name="com.example.android.lcohomeworkout.WorkoutFragment"
+              android:label="fragment_workout" tools:layout="@layout/fragment_workout">
+        <action android:id="@+id/action_workoutFragment_to_workoutFinishedFragment"
+                app:destination="@id/workoutFinishedFragment"/>
+    </fragment>
+    <fragment android:id="@+id/workoutFinishedFragment"
+              android:name="com.example.android.lcohomeworkout.WorkoutFinishedFragment"
+              android:label="fragment_workout_finished" tools:layout="@layout/fragment_workout_finished"/>
+</navigation>
