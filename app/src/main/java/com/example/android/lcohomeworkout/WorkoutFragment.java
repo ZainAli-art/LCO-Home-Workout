@@ -1,5 +1,7 @@
 package com.example.android.lcohomeworkout;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,7 +29,6 @@ public class WorkoutFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,12 +48,37 @@ public class WorkoutFragment extends Fragment {
 
         viewModel.getCurTime().observe(getViewLifecycleOwner(), time -> workoutTimerText.setText(time));
         viewModel.getCurWorkout().observe(getViewLifecycleOwner(), workout -> {
-            if (workout instanceof Workout.WorkoutFinished) {
+            if (workout instanceof Workout.Rest) {
+                unbindMedia();
+                changeWorkoutInfo(workout);
+            } else if (workout instanceof Workout.WorkoutFinished) {
                 navController.navigate(R.id.action_workoutFragment_to_workoutFinishedFragment);
             } else {
-                workoutImage.setImageResource(workout.getResId());
-                workoutNameText.setText(workout.getName());
+                changeWorkoutInfo(workout);
+                bindMedia();
             }
         });
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+    //      == helper methods ==
+
+    public void changeWorkoutInfo(Workout workout) {
+        workoutImage.setImageResource(workout.getResId());
+        workoutNameText.setText(workout.getName());
+    }
+
+    public void bindMedia() {
+        Intent intent = new Intent(requireActivity(), MediaService.class);
+        requireActivity().bindService(intent, viewModel.getConnection(), Context.BIND_AUTO_CREATE);
+    }
+
+    public void unbindMedia() {
+        if (viewModel.getBinder().getValue() != null)
+            requireActivity().unbindService(viewModel.getConnection());
     }
 }
