@@ -17,5 +17,9 @@
     </fragment>
     <fragment android:id="@+id/workoutFinishedFragment"
               android:name="com.example.android.lcohomeworkout.WorkoutFinishedFragment"
-              android:label="fragment_workout_finished" tools:layout="@layout/fragment_workout_finished"/>
+              android:label="fragment_workout_finished" tools:layout="@layout/fragment_workout_finished">
+        <action android:id="@+id/action_workoutFinishedFragment_to_chooseWorkoutFragment"
+                app:destination="@id/chooseWorkoutFragment" app:popUpTo="@id/chooseWorkoutFragment"
+                app:popUpToInclusive="true"/>
+    </fragment>
 </navigation>

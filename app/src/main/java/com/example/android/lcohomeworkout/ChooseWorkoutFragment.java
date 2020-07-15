@@ -72,6 +72,7 @@ public class ChooseWorkoutFragment extends Fragment implements View.OnClickListe
                     .addBarbellCurlOfSets(Integer.parseInt(barbellCurlSpinner.getSelectedItem().toString()))
                     .addShoulderPressOfSets(Integer.parseInt(shoulderPressSpinner.getSelectedItem().toString()))
                     .build());
+            viewModel.moveToNextWorkout();
 
             NavController navController = Navigation.findNavController(v);
             navController.navigate(R.id.action_chooseWorkoutFragment_to_workoutFragment);
