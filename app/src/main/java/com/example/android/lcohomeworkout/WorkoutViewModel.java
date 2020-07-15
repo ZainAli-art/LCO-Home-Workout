@@ -24,6 +24,7 @@ public class WorkoutViewModel extends ViewModel {
     }
 
     public void setWorkoutSession(List<Workout> workoutSession) {
+        curWorkoutIndex = 0;
         this.workoutSession = workoutSession;
     }
 
