@@ -25,6 +25,8 @@ public class WorkoutFragment extends Fragment {
     private TextView workoutNameText;
     private ImageView workoutImage;
 
+    private MediaService mService;
+
     public WorkoutFragment() {
         // Required empty public constructor
     }
@@ -58,10 +60,28 @@ public class WorkoutFragment extends Fragment {
                 bindMedia();
             }
         });
+        viewModel.getBinder().observe(getViewLifecycleOwner(), (binder) -> {
+            if (binder == null) {
+                mService = null;
+            } else {
+                mService = binder.getService();
+            }
+        });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (mService != null) {
+            mService.playMedia();
+        }
     }
 
     @Override
     public void onStop() {
+        if (mService != null) {
+            mService.pauseMedia();
+        }
         super.onStop();
     }
 
