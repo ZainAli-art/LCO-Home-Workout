@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Workout {
-    public static long PUSH_UPS_DURATION = 10000;
-    public static long CRUNCHES_DURATION = 10000;
-    public static long BENCH_PRESS_DURATION = 10000;
-    public static long BARBELL_CURL_DURATION = 10000;
-    public static long SHOULDER_PRESS_DURATION = 10000;
-    public static long REST_DURATION = 10000;
-    public static long WORKOUT_FINISHED_DURATION = 10000;
+    public static long PUSH_UPS_DURATION = 5000;
+    public static long CRUNCHES_DURATION = 5000;
+    public static long BENCH_PRESS_DURATION = 5000;
+    public static long BARBELL_CURL_DURATION = 5000;
+    public static long SHOULDER_PRESS_DURATION = 5000;
+    public static long REST_DURATION = 5000;
+    public static long WORKOUT_FINISHED_DURATION = 5000;
 
     private long duration;
     private String name;
@@ -36,8 +36,10 @@ public abstract class Workout {
 
     public static class SessionBuilder {
         List<Workout> workoutSession;
+        private int cycles;
 
-        public SessionBuilder() {
+        public SessionBuilder(int cycles) {
+            this.cycles = cycles;
             workoutSession = new ArrayList<>();
         }
 
@@ -86,6 +88,12 @@ public abstract class Workout {
         }
 
         public List<Workout> build() {
+            List<Workout> temp = workoutSession;
+            workoutSession = new ArrayList<>();
+            for (int i = 0; i < cycles; i++)
+                for (Workout workout : temp)
+                    workoutSession.add(workout);
+
             workoutSession.add(new WorkoutFinished());
             return workoutSession;
         }

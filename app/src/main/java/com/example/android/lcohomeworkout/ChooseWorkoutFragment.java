@@ -1,9 +1,7 @@
 package com.example.android.lcohomeworkout;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -15,12 +13,15 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 public class ChooseWorkoutFragment extends Fragment implements View.OnClickListener {
+    private View rootView;
+
     private Spinner pushUpsSpinner;
     private Spinner crunchesSpinner;
     private Spinner benchPressSpinner;
     private Spinner barbellCurlSpinner;
     private Spinner shoulderPressSpinner;
     private Button startButton;
+    private RadioGroup radioGroup;
 
     private WorkoutViewModel viewModel;
 
@@ -39,12 +40,14 @@ public class ChooseWorkoutFragment extends Fragment implements View.OnClickListe
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        rootView = view;
 
         pushUpsSpinner = view.findViewById(R.id.pushUpsSpinner);
         crunchesSpinner = view.findViewById(R.id.cruchesSpinner);
         benchPressSpinner = view.findViewById(R.id.benchPressSpinner);
         barbellCurlSpinner = view.findViewById(R.id.barbellCurlSpinner);
         shoulderPressSpinner = view.findViewById(R.id.shoulderPressSpinner);
+        radioGroup = view.findViewById(R.id.radioGroup);
         startButton = view.findViewById(R.id.startButton);
 
         viewModel = new ViewModelProvider(requireActivity()).get(WorkoutViewModel.class);
@@ -65,7 +68,9 @@ public class ChooseWorkoutFragment extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.startButton) {
-            viewModel.setWorkoutSession(new Workout.SessionBuilder()
+            RadioButton radioButton = rootView.findViewById(radioGroup.getCheckedRadioButtonId());
+
+            viewModel.setWorkoutSession(new Workout.SessionBuilder(Integer.parseInt(radioButton.getText().toString()))
                     .addPushUpsOfSets(Integer.parseInt(pushUpsSpinner.getSelectedItem().toString()))
                     .addCrunchesOfSets(Integer.parseInt(crunchesSpinner.getSelectedItem().toString()))
                     .addBenchPressOfSets(Integer.parseInt(benchPressSpinner.getSelectedItem().toString()))
