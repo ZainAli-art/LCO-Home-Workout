@@ -9,17 +9,21 @@ public abstract class Workout {
     public static long BENCH_PRESS_DURATION = 5000;
     public static long BARBELL_CURL_DURATION = 5000;
     public static long SHOULDER_PRESS_DURATION = 5000;
+    public static long LEG_RAISE_PRESS_DURATION = 5000;
+    public static long LUNGES_DURATION = 5000;
+    public static long PLANK_DURATION = 5000;
+    public static long SQUAT_DURATION = 5000;
     public static long REST_DURATION = 5000;
     public static long WORKOUT_FINISHED_DURATION = 5000;
 
     private long duration;
     private String name;
-    private int resId;
+    private int imageResId;
 
-    public Workout(long duration, String name, int resId) {
+    public Workout(long duration, String name, int imageResId) {
         this.duration = duration;
         this.name = name;
-        this.resId = resId;
+        this.imageResId = imageResId;
     }
 
     public long getDuration() {
@@ -30,8 +34,8 @@ public abstract class Workout {
         return name;
     }
 
-    public int getResId() {
-        return resId;
+    public int getImageResId() {
+        return imageResId;
     }
 
     public static class SessionBuilder {
@@ -45,7 +49,7 @@ public abstract class Workout {
 
         public SessionBuilder addPushUpsOfSets(int sets) {
             for (int i = 0; i < sets; i++) {
-                workoutSession.add(new PushsUps());
+                workoutSession.add(new PushUps());
                 addRest();
             }
             return this;
@@ -83,6 +87,38 @@ public abstract class Workout {
             return this;
         }
 
+        public SessionBuilder addSLegRaiseOfSets(int sets) {
+            for (int i = 0; i < sets; i++) {
+                workoutSession.add(new LegRaise());
+                addRest();
+            }
+            return this;
+        }
+
+        public SessionBuilder addLungesOfSets(int sets) {
+            for (int i = 0; i < sets; i++) {
+                workoutSession.add(new Lunges());
+                addRest();
+            }
+            return this;
+        }
+
+        public SessionBuilder addPlankOfSets(int sets) {
+            for (int i = 0; i < sets; i++) {
+                workoutSession.add(new Plank());
+                addRest();
+            }
+            return this;
+        }
+
+        public SessionBuilder addSquatOfSets(int sets) {
+            for (int i = 0; i < sets; i++) {
+                workoutSession.add(new Squat());
+                addRest();
+            }
+            return this;
+        }
+
         protected void addRest() {
             workoutSession.add(new Rest());
         }
@@ -99,8 +135,8 @@ public abstract class Workout {
         }
     }
 
-    public static class PushsUps extends Workout {
-        public PushsUps() {
+    public static class PushUps extends Workout {
+        public PushUps() {
             super(PUSH_UPS_DURATION, "Push Ups", R.drawable.push_ups);
         }
     }
@@ -129,6 +165,30 @@ public abstract class Workout {
         }
     }
 
+    public static class LegRaise extends Workout {
+        public LegRaise() {
+            super(LEG_RAISE_PRESS_DURATION, "Leg Raise", R.drawable.leg_raise);
+        }
+    }
+
+    public static class Lunges extends Workout {
+        public Lunges() {
+            super(LUNGES_DURATION, "Lunges", R.drawable.lunges);
+        }
+    }
+
+    public static class Plank extends Workout {
+        public Plank() {
+            super(PLANK_DURATION, "Plank", R.drawable.plank);
+        }
+    }
+
+    public static class Squat extends Workout {
+        public Squat() {
+            super(SQUAT_DURATION, "Squat", R.drawable.squat);
+        }
+    }
+
     public static class Rest extends Workout {
         public Rest() {
             super(REST_DURATION, "Rest", R.drawable.rest);
@@ -137,7 +197,7 @@ public abstract class Workout {
 
     public static class WorkoutFinished extends Workout {
         public WorkoutFinished() {
-            super(WORKOUT_FINISHED_DURATION, "Workout Finished", R.drawable.rest);
+            super(WORKOUT_FINISHED_DURATION, "Workout Finished", R.drawable.workout_finished);
         }
     }
 }
