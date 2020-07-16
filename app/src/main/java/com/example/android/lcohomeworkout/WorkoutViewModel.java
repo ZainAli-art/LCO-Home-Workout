@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.ServiceConnection;
 import android.os.CountDownTimer;
 import android.os.IBinder;
+import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -11,11 +12,14 @@ import androidx.lifecycle.ViewModel;
 import java.util.List;
 
 public class WorkoutViewModel extends ViewModel {
+    private static final String TAG = "WorkoutViewModel";
+
     private MutableLiveData<Workout> curWorkout = new MutableLiveData<>();
     private MutableLiveData<String> curTime = new MutableLiveData<>();
     private int curWorkoutIndex;
     private List<Workout> workoutSession;
     private CountDownTimer timer;
+    private long millisRemaining;
 
     private ServiceConnection connection;
     private MutableLiveData<MediaService.LocalBinder> mBinder = new MutableLiveData<>();
@@ -58,9 +62,23 @@ public class WorkoutViewModel extends ViewModel {
     public void moveToNextWorkout() {
         if (curWorkoutIndex < workoutSession.size())
             curWorkout.setValue(workoutSession.get(curWorkoutIndex++));
-        timer = new CountDownTimer(curWorkout.getValue().getDuration(), 1000) {
+        startTimer(curWorkout.getValue().getDuration());
+    }
+
+    public void resumeTimer() {
+        startTimer(millisRemaining);
+    }
+
+    private void startTimer(long duration) {
+        Log.d(TAG, "resumeTimer: timer initialized with duration " + duration);
+        if (timer != null)
+            pauseTimer();
+
+        millisRemaining = duration;
+        timer = new CountDownTimer(millisRemaining, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
+                millisRemaining = millisUntilFinished;
                 curTime.setValue(durationToTime(millisUntilFinished));
             }
 
@@ -70,6 +88,12 @@ public class WorkoutViewModel extends ViewModel {
             }
         };
         timer.start();
+    }
+
+    public void pauseTimer() {
+        timer.cancel();
+        timer = null;
+        Log.d(TAG, "pauseTimer: timer cancelled");
     }
 
     private String durationToTime(long duration) {

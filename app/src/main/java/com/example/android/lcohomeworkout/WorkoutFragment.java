@@ -72,6 +72,7 @@ public class WorkoutFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        viewModel.resumeTimer();
         if (mService != null) {
             mService.playMedia();
         }
@@ -79,6 +80,7 @@ public class WorkoutFragment extends Fragment {
 
     @Override
     public void onStop() {
+        viewModel.pauseTimer();
         if (mService != null) {
             mService.pauseMedia();
         }
