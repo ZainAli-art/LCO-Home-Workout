@@ -40,7 +40,7 @@ public class WorkoutFinishedFragment extends Fragment implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        navController.navigate(R.id.action_workoutFinishedFragment_to_chooseWorkoutFragment);
+        navController.navigate(R.id.action_workoutFinishedFragment_to_chooseWorkoutTypeFragment);
     }
 
     private class CustomOnBackPressed extends OnBackPressedCallback {
@@ -50,7 +50,7 @@ public class WorkoutFinishedFragment extends Fragment implements View.OnClickLis
 
         @Override
         public void handleOnBackPressed() {
-            navController.navigate(R.id.action_workoutFinishedFragment_to_chooseWorkoutFragment);
+            navController.navigate(R.id.action_workoutFinishedFragment_to_chooseWorkoutTypeFragment);
         }
     }
 

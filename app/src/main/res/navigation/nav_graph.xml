@@ -2,13 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
-            app:startDestination="@id/chooseWorkoutFragment">
+            app:startDestination="@id/chooseWorkoutTypeFragment">
 
-    <fragment android:id="@+id/chooseWorkoutFragment"
-              android:name="com.example.android.lcohomeworkout.ChooseWorkoutFragment"
-              android:label="fragment_choose_workout" tools:layout="@layout/fragment_choose_workout">
-        <action android:id="@+id/action_chooseWorkoutFragment_to_workoutFragment"
-                app:destination="@id/workoutFragment"/>
+    <fragment android:id="@+id/buildWorkoutFragment"
+              android:name="com.example.android.lcohomeworkout.BuildWorkoutFragment"
+              android:label="fragment_build_workout" tools:layout="@layout/fragment_build_workout">
+        <action android:id="@+id/action_buildWorkoutFragment_to_workoutFragment" app:destination="@id/workoutFragment"/>
     </fragment>
     <fragment android:id="@+id/workoutFragment" android:name="com.example.android.lcohomeworkout.WorkoutFragment"
               android:label="fragment_workout" tools:layout="@layout/fragment_workout">
@@ -18,8 +17,15 @@
     <fragment android:id="@+id/workoutFinishedFragment"
               android:name="com.example.android.lcohomeworkout.WorkoutFinishedFragment"
               android:label="fragment_workout_finished" tools:layout="@layout/fragment_workout_finished">
-        <action android:id="@+id/action_workoutFinishedFragment_to_chooseWorkoutFragment"
-                app:destination="@id/chooseWorkoutFragment" app:popUpTo="@id/chooseWorkoutFragment"
+        <action android:id="@+id/action_workoutFinishedFragment_to_chooseWorkoutTypeFragment"
+                app:destination="@id/chooseWorkoutTypeFragment" app:popUpTo="@id/chooseWorkoutTypeFragment"
                 app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment android:id="@+id/chooseWorkoutTypeFragment" android:name="com.example.android.lcohomeworkout.ChooseWorkoutTypeFragment"
+              android:label="fragment_choose_workout_type" tools:layout="@layout/fragment_choose_workout_type">
+        <action android:id="@+id/action_chooseWorkoutTypeFragment_to_buildWorkoutFragment"
+                app:destination="@id/buildWorkoutFragment"/>
+        <action android:id="@+id/action_chooseWorkoutTypeFragment_to_workoutFragment"
+                app:destination="@id/workoutFragment"/>
     </fragment>
 </navigation>

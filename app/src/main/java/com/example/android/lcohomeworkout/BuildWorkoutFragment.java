@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-public class ChooseWorkoutFragment extends Fragment implements View.OnClickListener {
+public class BuildWorkoutFragment extends Fragment implements View.OnClickListener {
     private View rootView;
 
     private Spinner pushUpsSpinner;
@@ -25,7 +25,7 @@ public class ChooseWorkoutFragment extends Fragment implements View.OnClickListe
 
     private WorkoutViewModel viewModel;
 
-    public ChooseWorkoutFragment() {
+    public BuildWorkoutFragment() {
         // Required empty public constructor
     }
 
@@ -34,7 +34,7 @@ public class ChooseWorkoutFragment extends Fragment implements View.OnClickListe
                              Bundle savedInstanceState) {
 
 //        binding = Binding
-        return inflater.inflate(R.layout.fragment_choose_workout, container, false);
+        return inflater.inflate(R.layout.fragment_build_workout, container, false);
     }
 
     @Override
@@ -80,7 +80,7 @@ public class ChooseWorkoutFragment extends Fragment implements View.OnClickListe
             viewModel.moveToNextWorkout();
 
             NavController navController = Navigation.findNavController(v);
-            navController.navigate(R.id.action_chooseWorkoutFragment_to_workoutFragment);
+            navController.navigate(R.id.action_buildWorkoutFragment_to_workoutFragment);
         }
     }
 }

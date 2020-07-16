@@ -1,7 +1,6 @@
 package com.example.android.lcohomeworkout;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public abstract class Workout {
     public static long PUSH_UPS_DURATION = 5000;
@@ -36,6 +35,39 @@ public abstract class Workout {
 
     public int getImageResId() {
         return imageResId;
+    }
+
+    public static List<Workout> getRandomSession() {
+        List<Workout> workoutSession = new ArrayList<>();
+
+        Map<Integer, Workout> workoutMap = new HashMap<>();
+        workoutMap.put(0, new PushUps());
+        workoutMap.put(1, new Crunches());
+        workoutMap.put(2, new BenchPress());
+        workoutMap.put(3, new BarbellCurl());
+        workoutMap.put(4, new ShoulderPress());
+        workoutMap.put(5, new LegRaise());
+        workoutMap.put(6, new Lunges());
+        workoutMap.put(7, new Plank());
+        workoutMap.put(8, new Squat());
+
+        Random rand = new Random();
+        int maxCycles = rand.nextInt(5);
+        int noOfWorkouts = 5;
+        int maxSets = rand.nextInt(5);
+
+        for (int cycles = 0; cycles < maxCycles; cycles++) {     // no of cycles: 1-5
+            for (int workouts = 0; workouts < noOfWorkouts; workouts++) {       // no of workouts per cycle: 5 (fixed)
+                Workout workout = workoutMap.get(rand.nextInt(workoutMap.size()));
+                for (int sets = 0; sets < maxSets; sets++) {    // no of sets per workout: 1-5
+                    workoutSession.add(workout);
+                    workoutSession.add(new Rest());
+                }
+            }
+        }
+        workoutSession.add(new WorkoutFinished());
+
+        return workoutSession;
     }
 
     public static class SessionBuilder {

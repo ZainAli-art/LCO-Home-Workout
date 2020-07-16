@@ -90,7 +90,7 @@ public class WorkoutFragment extends Fragment {
     //      == helper methods ==
 
     public void changeWorkoutInfo(Workout workout) {
-        workoutImage.setImageResource(workout.getResId());
+        workoutImage.setImageResource(workout.getImageResId());
         workoutNameText.setText(workout.getName());
     }
 
