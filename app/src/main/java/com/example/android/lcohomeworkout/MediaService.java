@@ -18,9 +18,10 @@ public class MediaService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         Log.d(TAG, "onBind: called");
+        int musicResId = intent.getIntExtra(Workout.MUSIC_KEY, 0);
 
         if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.joined_audio);
+            mediaPlayer = MediaPlayer.create(this, musicResId);
         }
         if (binder == null) {
             binder = new LocalBinder();

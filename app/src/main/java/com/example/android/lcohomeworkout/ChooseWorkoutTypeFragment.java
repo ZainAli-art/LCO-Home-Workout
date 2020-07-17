@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -61,6 +60,7 @@ public class ChooseWorkoutTypeFragment extends Fragment implements View.OnClickL
     public void navigateToRandomWorkout() {
         WorkoutViewModel viewModel = new ViewModelProvider(requireActivity()).get(WorkoutViewModel.class);
         viewModel.setWorkoutSession(Workout.getRandomSession());
+
         navController.navigate(R.id.action_chooseWorkoutTypeFragment_to_workoutFragment);
     }
 }

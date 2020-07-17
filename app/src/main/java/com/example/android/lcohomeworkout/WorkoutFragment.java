@@ -96,6 +96,7 @@ public class WorkoutFragment extends Fragment {
 
     public void bindMedia() {
         Intent intent = new Intent(requireActivity(), MediaService.class);
+        intent.putExtra(Workout.MUSIC_KEY, viewModel.getCurWorkout().getValue().getMusicResId());
         requireActivity().bindService(intent, viewModel.getConnection(), Context.BIND_AUTO_CREATE);
     }
 

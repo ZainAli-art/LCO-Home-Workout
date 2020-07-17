@@ -60,6 +60,8 @@ public class WorkoutViewModel extends ViewModel {
     }
 
     public void moveToNextWorkout() {
+        Log.d(TAG, "moveToNextWorkout: called");
+
         if (curWorkoutIndex < workoutSession.size())
             curWorkout.setValue(workoutSession.get(curWorkoutIndex++));
         startTimer(curWorkout.getValue().getDuration());
