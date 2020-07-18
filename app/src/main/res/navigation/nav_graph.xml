@@ -7,7 +7,8 @@
     <fragment android:id="@+id/buildWorkoutFragment"
               android:name="com.example.android.lcohomeworkout.BuildWorkoutFragment"
               android:label="fragment_build_workout" tools:layout="@layout/fragment_build_workout">
-        <action android:id="@+id/action_buildWorkoutFragment_to_workoutFragment" app:destination="@id/workoutFragment"/>
+        <action android:id="@+id/action_buildWorkoutFragment_to_workoutListFragment"
+                app:destination="@id/workoutListFragment"/>
     </fragment>
     <fragment android:id="@+id/workoutFragment" android:name="com.example.android.lcohomeworkout.WorkoutFragment"
               android:label="fragment_workout" tools:layout="@layout/fragment_workout">
@@ -25,9 +26,14 @@
               android:label="fragment_choose_workout_type" tools:layout="@layout/fragment_choose_workout_type">
         <action android:id="@+id/action_chooseWorkoutTypeFragment_to_buildWorkoutFragment"
                 app:destination="@id/buildWorkoutFragment"/>
-        <action android:id="@+id/action_chooseWorkoutTypeFragment_to_workoutFragment"
-                app:destination="@id/workoutFragment"/>
+        <action android:id="@+id/action_chooseWorkoutTypeFragment_to_workoutListFragment"
+                app:destination="@id/workoutListFragment"/>
     </fragment>
     <fragment android:id="@+id/creatorFragment" android:name="com.example.android.lcohomeworkout.CreatorFragment"
               android:label="fragment_about" tools:layout="@layout/fragment_creator"/>
+    <fragment android:id="@+id/workoutListFragment"
+              android:name="com.example.android.lcohomeworkout.WorkoutListFragment"
+              android:label="fragment_workout_list" tools:layout="@layout/fragment_workout_list">
+        <action android:id="@+id/action_workoutListFragment_to_workoutFragment" app:destination="@id/workoutFragment"/>
+    </fragment>
 </navigation>

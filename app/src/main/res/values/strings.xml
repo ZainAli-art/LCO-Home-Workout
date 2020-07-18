@@ -7,6 +7,7 @@
     <string name="barbell_press">Barbell Press</string>
     <string name="shoulder_press">Shoulder Press</string>
     <string name="rest">Rest</string>
+    <string name="next">Next</string>
     <string name="start">Start</string>
     <string name="play">Play</string>
     <string name="pause">Pause</string>
@@ -23,6 +24,8 @@
     <string name="time_consumed_heading">Time Consumed To Build The App</string>
     <string name="time_consumed">2 Weeks</string>
     <string name="price_heading">Price: $80</string>
+    <string name="workout_image_description">Workout Image</string>
+    <string name="temporary_sets">3x</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

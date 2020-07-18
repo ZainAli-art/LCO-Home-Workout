@@ -67,11 +67,11 @@ public class ChooseWorkoutTypeFragment extends Fragment implements View.OnClickL
 
     public void navigateToRandomWorkout() {
         viewModel.setWorkoutSession(Workout.getRandomSession());
-        navController.navigate(R.id.action_chooseWorkoutTypeFragment_to_workoutFragment);
+        navController.navigate(R.id.action_chooseWorkoutTypeFragment_to_workoutListFragment);
     }
 
     public void navigateToDayWiseWorkout() {
         viewModel.setWorkoutSession(DayWiseWorkoutSession.getTodaySession());
-        navController.navigate(R.id.action_chooseWorkoutTypeFragment_to_workoutFragment);
+        navController.navigate(R.id.action_chooseWorkoutTypeFragment_to_workoutListFragment);
     }
 }

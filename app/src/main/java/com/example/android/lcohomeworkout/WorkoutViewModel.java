@@ -36,6 +36,10 @@ public class WorkoutViewModel extends ViewModel {
         return mBinder;
     }
 
+    public List<Workout> getWorkoutSession() {
+        return workoutSession;
+    }
+
     public ServiceConnection getConnection() {
         if (connection == null) {
             connection = new ServiceConnection() {

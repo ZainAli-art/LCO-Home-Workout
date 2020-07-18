@@ -79,7 +79,7 @@ public class BuildWorkoutFragment extends Fragment implements View.OnClickListen
                     .build());
 
             NavController navController = Navigation.findNavController(v);
-            navController.navigate(R.id.action_buildWorkoutFragment_to_workoutFragment);
+            navController.navigate(R.id.action_buildWorkoutFragment_to_workoutListFragment);
         }
     }
 }
