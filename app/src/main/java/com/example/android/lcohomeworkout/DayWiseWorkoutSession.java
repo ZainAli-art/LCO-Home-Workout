@@ -14,6 +14,7 @@ public class DayWiseWorkoutSession {
 
     public static List<Workout> getTodaySession() {
         List<Workout> todaySession;
+        
         switch (Calendar.DAY_OF_WEEK) {
             case Calendar.MONDAY:
                 todaySession = getMondaySession();
