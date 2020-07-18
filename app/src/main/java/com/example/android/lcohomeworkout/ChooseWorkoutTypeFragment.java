@@ -15,6 +15,7 @@ import androidx.navigation.Navigation;
 
 public class ChooseWorkoutTypeFragment extends Fragment implements View.OnClickListener {
     private NavController navController;
+    private WorkoutViewModel viewModel;
 
     public ChooseWorkoutTypeFragment() {
         // Required empty public constructor
@@ -32,11 +33,15 @@ public class ChooseWorkoutTypeFragment extends Fragment implements View.OnClickL
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
+        viewModel = new ViewModelProvider(requireActivity()).get(WorkoutViewModel.class);
 
         Button customWorkoutButton = view.findViewById(R.id.customWorkoutButton);
         Button randomWorkoutButton = view.findViewById(R.id.randomWorkoutButton);
+        Button dayWiseWorkoutButton = view.findViewById(R.id.dayWiseWorkoutButton);
+
         customWorkoutButton.setOnClickListener(this);
         randomWorkoutButton.setOnClickListener(this);
+        dayWiseWorkoutButton.setOnClickListener(this);
     }
 
     @Override
@@ -48,6 +53,9 @@ public class ChooseWorkoutTypeFragment extends Fragment implements View.OnClickL
             case R.id.randomWorkoutButton:
                 navigateToRandomWorkout();
                 break;
+            case R.id.dayWiseWorkoutButton:
+                navigateToDayWiseWorkout();
+                break;
             default:
                 Toast.makeText(getContext(), "No Functionality added yet.", Toast.LENGTH_SHORT).show();
         }
@@ -58,9 +66,12 @@ public class ChooseWorkoutTypeFragment extends Fragment implements View.OnClickL
     }
 
     public void navigateToRandomWorkout() {
-        WorkoutViewModel viewModel = new ViewModelProvider(requireActivity()).get(WorkoutViewModel.class);
         viewModel.setWorkoutSession(Workout.getRandomSession());
+        navController.navigate(R.id.action_chooseWorkoutTypeFragment_to_workoutFragment);
+    }
 
+    public void navigateToDayWiseWorkout() {
+        viewModel.setWorkoutSession(DayWiseWorkoutSession.getTodaySession());
         navController.navigate(R.id.action_chooseWorkoutTypeFragment_to_workoutFragment);
     }
 }

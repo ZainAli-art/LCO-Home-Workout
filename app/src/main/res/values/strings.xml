@@ -16,6 +16,7 @@
     <string name="choose_cycles">Choose Cycles</string>
     <string name="custom_workout">Custom Workout</string>
     <string name="random_workout">Random Workout</string>
+    <string name="day_wise_workout">Day Wise Workout</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
