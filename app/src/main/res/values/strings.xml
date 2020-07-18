@@ -17,6 +17,12 @@
     <string name="custom_workout">Custom Workout</string>
     <string name="random_workout">Random Workout</string>
     <string name="day_wise_workout">Day Wise Workout</string>
+    <string name="about">About</string>
+    <string name="challenge_link_heading">Hitesh Chouhdhary App Challenge</string>
+    <string name="challenge_link">https://www.youtube.com/watch?v=VFrKjhcTAzE&amp;t=661s</string>
+    <string name="time_consumed_heading">Time Consumed To Build The App</string>
+    <string name="time_consumed">2 Weeks</string>
+    <string name="price_heading">Price: $80</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

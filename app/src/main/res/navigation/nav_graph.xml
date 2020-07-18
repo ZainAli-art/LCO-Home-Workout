@@ -28,4 +28,6 @@
         <action android:id="@+id/action_chooseWorkoutTypeFragment_to_workoutFragment"
                 app:destination="@id/workoutFragment"/>
     </fragment>
+    <fragment android:id="@+id/creatorFragment" android:name="com.example.android.lcohomeworkout.CreatorFragment"
+              android:label="fragment_about" tools:layout="@layout/fragment_creator"/>
 </navigation>

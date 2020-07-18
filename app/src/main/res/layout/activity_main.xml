@@ -8,19 +8,19 @@
         tools:context=".MainActivity">
     <androidx.appcompat.widget.Toolbar
             app:title="@string/app_name"
+            app:menu="@menu/main_toolbar_menu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:theme="?attr/actionBarTheme"
             android:minHeight="?attr/actionBarSize" android:id="@+id/toolbar"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="1dp"
-            app:layout_constraintBottom_toTopOf="@+id/fragment"/>
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="1dp"/>
     <fragment
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp" app:navGraph="@navigation/nav_graph" app:defaultNavHost="true"
-            android:id="@+id/fragment"
+            android:id="@+id/navFragment"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" android:layout_marginBottom="1dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
