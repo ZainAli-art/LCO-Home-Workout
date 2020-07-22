@@ -9,10 +9,17 @@
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textColorSecondary">@color/secondaryTextColor</item>
         <item name="toolbarStyle">@style/ToolbarTheme</item>
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
     </style>
 
     <style name="ToolbarTheme" parent="Widget.AppCompat.Toolbar">
         <item name="android:elevation" tools:targetApi="lollipop">5dp</item>
+    </style>
+
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/ic_button_background</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:padding">@dimen/buttonPadding</item>
     </style>
 
 </resources>

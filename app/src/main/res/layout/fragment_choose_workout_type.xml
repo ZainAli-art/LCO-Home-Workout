@@ -7,21 +7,24 @@
                                                    tools:context=".ChooseWorkoutTypeFragment" android:id="@+id/frameLayout2">
     <Button
             android:text="@string/custom_workout"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/customWorkoutButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.41000003"/>
+            app:layout_constraintVertical_bias="0.41000003" android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"/>
     <Button
             android:text="@string/random_workout"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/randomWorkoutButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/customWorkoutButton" android:layout_marginTop="24dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/customWorkoutButton" android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp" android:layout_marginStart="16dp"/>
     <Button
             android:text="@string/day_wise_workout"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/dayWiseWorkoutButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/randomWorkoutButton" android:layout_marginTop="24dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/randomWorkoutButton" android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp" android:layout_marginStart="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
